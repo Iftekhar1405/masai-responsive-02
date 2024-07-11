@@ -1,0 +1,53 @@
+footer {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr); 
+    gap: 10px;
+    background-color: rgb(38, 56, 192);
+}
+
+footer div:first-child {
+    grid-column: 1 / 6; 
+    background-color: rgb(19, 40, 105);
+    display: grid;
+    place-content: center;
+}
+
+footer div:nth-child(2),
+footer div:nth-child(3),
+footer div:nth-child(4),
+footer div:nth-child(5) {
+    grid-column: span 1; 
+    background-color: rgb(38, 56, 192); 
+    border: 2px solid black;
+}
+
+footer div:last-child {
+    grid-column: 1 / -1; 
+    background-color: rgb(34, 34, 34);
+    height: 50px;
+}
+
+@media (max-width: 800px) {
+    footer {
+        grid-template-columns: repeat(4,1fr); /* Change to a single column layout */
+        grid-template-rows: auto auto auto auto; /* Adjust rows as needed */
+    }
+
+    footer div:last-child {
+        grid-column: 1 / -1; /* Take full width */
+        grid-row: 1; /* Move to the first row */
+    }
+
+    footer div:nth-child(2),
+    footer div:nth-child(3),
+    footer div:nth-child(4),
+    footer div:nth-child(5) {
+        grid-column: span 1;
+        grid-row: 2; /* Each takes full width */
+    }
+
+    footer div:first-child {
+        grid-column: 1 / -1; /* Take full width */
+        grid-row: 6; /* Move to the last row */
+    }
+}
